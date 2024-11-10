@@ -1,5 +1,10 @@
 /*==================== TOGGLE ICON NAVBAR ====================*/
 
+document.addEventListener("DOMContentLoaded", function() {
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.add('loaded');
+});
+
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
@@ -49,7 +54,7 @@ ScrollReveal ({
     delay: 200
 });
 
-ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
+ScrollReveal().reveal('.home-content, .heading, .skills', {origin: 'top'});
 ScrollReveal().reveal('.home-img, .services-container, .portofolio-box, .see-more-container, .contact', {origin: 'bottom'});
 ScrollReveal().reveal('.home-content h1, .about-img', {origin: 'left'});
 ScrollReveal().reveal('.home-content p, .about-content', {origin: 'right'});
@@ -67,6 +72,43 @@ const typed = new Typed('.multiple-text', {
 /*==================== CLEAR FORM ====================*/
 
 function clearForm() {
-    document.querySelector("form").reset();
+  document.querySelector("form").reset();
 }
 
+/*==================== SKILLS ====================*/
+
+document.addEventListener("DOMContentLoaded", function() {
+  const buttons = document.querySelectorAll('.toggle-btn');
+  const skillsBox = document.querySelector('.skills-box');
+  const skillsList = document.querySelector('.skills-list');
+  const toolsList = document.querySelector('.tools-list');
+
+  buttons.forEach(button => {
+      button.classList.remove('active');
+  });
+  buttons[0].classList.add('active'); 
+  skillsBox.classList.add('active');
+  skillsList.style.display = 'flex';
+  toolsList.style.display = 'none';
+
+  buttons.forEach(button => {
+      button.addEventListener('click', function() {
+          const target = button.getAttribute('data-toggle-btn');
+          
+          buttons.forEach(btn => btn.classList.remove('active'));
+          skillsBox.classList.remove('active');
+          
+          button.classList.add('active');
+          
+          if (target === 'skills') {
+              skillsBox.classList.add('active');
+              skillsList.style.display = 'flex';
+              toolsList.style.display = 'none';
+          } else if (target === 'tools') {
+              skillsBox.classList.add('active');
+              toolsList.style.display = 'flex';
+              skillsList.style.display = 'none';
+          }
+      });
+  });
+});
