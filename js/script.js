@@ -69,12 +69,6 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
-/*==================== CLEAR FORM ====================*/
-
-function clearForm() {
-  document.querySelector("form").reset();
-}
-
 /*==================== SKILLS ====================*/
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -112,3 +106,9 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   });
 });
+
+/*==================== CLEAR FORM ====================*/
+
+function clearForm() {
+    document.querySelector("form").reset();
+  }
