@@ -593,7 +593,7 @@ span {
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
-        margin-right: 6px;
+        /* margin-right: 6rem; */
         position: relative;
     }
     .navbar {
@@ -604,10 +604,14 @@ span {
         padding: 1rem 3%;
         background: var(--bg-color);
         border-top: .1rem solid rgba(0, 0, 0, .2);
-        display: none;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease; 
+        opacity: 0;
     }
     .navbar.active {
-        display: block;
+        max-height: 500px;
+        opacity: 1;
     }
     .navbar a {
         display: block;
@@ -697,5 +701,3 @@ span {
         font-size: 1.8rem;
     }
 }
-
-
